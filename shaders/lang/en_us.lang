@@ -1,0 +1,17 @@
+option.KERNEL=Image Kernel
+option.KERNEL.comment=Apply a kernel to the game screen.
+value.KERNEL.NONE=None
+value.KERNEL.EMBOSS=Emboss
+value.KERNEL.OUTLINE=Outline
+value.KERNEL.SOBEL=Sobel
+value.KERNEL.SHARPEN=Sharpen
+
+value.DIRECTION.comment=Direction to apply kernel, only applies to some.
+value.DIRECTION.UP=Up
+value.DIRECTION.DOWN=Down
+value.DIRECTION.LEFT=Left
+value.DIRECTION.RIGHT=Right
+value.DIRECTION.NE=North East
+value.DIRECTION.NW=North West
+value.DIRECTION.SW=South West
+value.DIRECTION.SE=South East
