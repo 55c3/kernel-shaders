@@ -19,3 +19,16 @@ Some settings I enjoy:
 * Outline, Contrast 25
 
 Create an issue or submit a PR if you would like to see a kernel added to this shader.
+
+## Examples
+
+Best seen in game but here is a small sample.
+
+Source | Sharpen | Emboss | Outline
+-------+--------+---------+------
+![source](examples/source.png)|![Sharpen](examples/sharpen.png)|![Emboss](examples/emboss.png)|![Outline](examples/outline.png)
+
+* Sharpen - less blur between pixels
+* Emboss - 3D effect on textures
+* Outline - change of color
+* Sobel - edge detection
