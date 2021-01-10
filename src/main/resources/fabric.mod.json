@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "kernel-shader-mod",
+  "version": "${version}",
+
+  "name": "Kernel Shader Mod",
+  "description": "Apply Image Kernels to Minecraft",
+  "authors": [
+    "55c3"
+  ],
+  "contact": {
+    "homepage": "https://www.youtube.com/channel/UCxB7uh0De7wkzGbbEtuY4hw",
+    "sources": "https://github.com/55c3/"
+  },
+
+  "license": "MIT",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.fiftyfivec3.kernels.Mod"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "rng-tracker": "*"
+  }
+}
