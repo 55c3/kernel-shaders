@@ -7,7 +7,7 @@ Download and install [Forge](http://files.minecraftforge.net/) and the [OptiFine
 
 Put the OptiFine mod `.jar` file into your minecraft mods folder. Make a `shaderpacks` folder in your minecraft folder and unzip [this shaderpack](https://github.com/55c3/kernel-shaders/releases).
 
-Once there is a release of the [Iris mod](https://github.com/IrisShaders/Iris), this shaderpack will work with Fabric as well.
+Once there is a release of the [Iris mod](https://github.com/IrisShaders/Iris), this shaderpack will work with Fabric as well. Check out the [fabric branch](https://github.com/55c3/kernel-shaders/tree/fabric) to see a Fabric mod version of this shader.
 
 ## Usage
 In the Shader Options, you can select a kernel and direction to try out. The direction creates subtle changes so play around with them to find what you like.
