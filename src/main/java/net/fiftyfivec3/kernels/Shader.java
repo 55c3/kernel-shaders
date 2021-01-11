@@ -8,9 +8,7 @@ import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.VertexFormats;
 import net.minecraft.util.math.Matrix4f;
 import org.apache.commons.lang3.StringUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL11C;
-import org.lwjgl.opengl.GL20;
+import org.lwjgl.opengl.*;
 
 public class Shader {
     private static int ID = 0;
@@ -66,9 +64,8 @@ public class Shader {
         loaded = true;
 
         String vertexSource = "#version 120\n" +
-                "\n" +
-                "uniform float viewWidth;\n" +
-                "uniform float viewHeight;\n" +
+                "uniform int viewWidth;\n" +
+                "uniform int viewHeight;\n" +
                 "\n" +
                 "varying vec2 data[9];\n" +
                 "\n" +
@@ -88,7 +85,6 @@ public class Shader {
                 "}";
 
         String fragmentSource = "#version 120\n" +
-                "\n" +
                 "#define NONE 0\n" +
                 "#define EMBOSS 1\n" +
                 "#define OUTLINE 2\n" +
@@ -107,7 +103,7 @@ public class Shader {
                 "\telse if(kernel==EMBOSS)mat=float[](2,1,0,1,1,-1,0,-1,-2);\n" +
                 "\telse if(kernel==SHARPEN)mat=float[](0,-1,0,-1,5,-1,0,-1,0);\n" +
                 "\telse if(kernel==SOBEL)mat=float[](-1,0,1,-2,0,2,-1,0,1);\n" +
-                "\telse mat=float[](1,1,1,1,1,1,1,1,1);\n" +
+                "\telse mat=float[](0,0,0,0,1,0,0,0,0);\n" +
                 "\tfor (int i=0;i<9;i++)resultColor+=texture2D(gcolor,data[i])*mat[i];\n" +
                 "\tif (brightness!=0)resultColor += brightness / 255.0;\n" +
                 "\tif (contrast!=0){\n" +
@@ -148,14 +144,16 @@ public class Shader {
 
         buffer.end();
         vertexBuffer.upload(buffer);
+
+        int[] textures = new int[2];
+        GL11C.glGenTextures(textures);
     }
 
     private static void enable(int width, int height) {
         GlProgramManager.useProgram(ID);
 
-
-        GL20.glUniform1f(widthLoc, (float) width);
-        GL20.glUniform1f(heightLoc, (float) height);
+        GL20.glUniform1i(widthLoc, width);
+        GL20.glUniform1i(heightLoc, height);
         GlStateManager.uniform1(kernelLoc, Mod.kernel.opt);
         GlStateManager.uniform1(brightnessLoc, Mod.brightness);
         GlStateManager.uniform1(contrastLoc, Mod.contrast);
@@ -168,6 +166,7 @@ public class Shader {
         enable(width, height);
 
         RenderSystem.disableDepthTest();
+        RenderSystem.enableTexture();
 
         RenderSystem.matrixMode(GL11.GL_PROJECTION);
         RenderSystem.pushMatrix();
