@@ -1,26 +1,17 @@
-# Image Kernel Shaders
-Image Kernel shader pack for Minecraft.
+# Image Kernel Shaders vFabric
+Image Kernel shader mod for Minecraft.
 
 ## Installation
 
-Download and install [Forge](http://files.minecraftforge.net/) and the [OptiFine Mod](https://optifine.net/downloads).
+Download and install the [fabric mod loader](https://fabricmc.net/use/) and the [fabric api](https://www.curseforge.com/minecraft/mc-mods/fabric-api).
 
-Put the OptiFine mod `.jar` file into your minecraft mods folder. Make a `shaderpacks` folder in your minecraft folder and unzip [this shaderpack](https://github.com/55c3/kernel-shaders/releases).
-
-Once there is a release of the [Iris mod](https://github.com/IrisShaders/Iris), this shaderpack will work with Fabric as well. The `fabric` branch has a mod that replicates this effect for Fabric users. Outline and shader modes are buggy currently.
+Put the fabric-api `.jar` and [this mod `.jar`](https://github.com/55c3/kernel-shaders/tree/fabric) file into your minecraft mods folder.
 
 ## Usage
-In the Shader Options, you can select a kernel and direction to try out. The direction creates subtle changes so play around with them to find what you like.
-
-Some settings I enjoy:
-
-* Emboss, North West
-* Sobel, Left
-* Outline, Contrast 25
-
-Create an issue or submit a PR if you would like to see a kernel added to this shader.
-
-If using the Fabric mod, use the `/kernel` command followed by `set` to set the kernel or `brightness`/`contrast` to set those values.
+Use the `/kernel` command.
+ * `/kernel set [none|emboss|sharpen|sobel|outline]` to use a specific kernel
+ * `/kernel contrast [int]` to set the contrast level (between 0 and 255).
+ * `/kernel brightness [int]` to set the brightness level (between 0 and 255).
 
 ## Examples
 
